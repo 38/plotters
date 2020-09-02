@@ -506,7 +506,7 @@ The following list is a complete list of features that can be opt in and out.
 
 | Name    |  Description | Additional Dependency |Default?|
 |---------|--------------|--------|------------|
-| datetime | Eanble the date and time coordinate support | chrono | Yes |
+| datetime | Enable the date and time coordinate support | chrono | Yes |
 
 - Element, series and util functions
 
