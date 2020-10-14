@@ -17,7 +17,7 @@
 </a>
 
 Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of back-ends, 
-including bitmap, vector graph, piston window, GTK/Cairo and WebAssembly. 
+including bitmap, vector graph, GTK/Cairo and WebAssembly. 
 
 - A new Plotters Developer's Guide is working in progress. The preview version is available at [here](https://plotters-rs.github.io/book).
 - To try Plotters with interactive Jupyter notebook, or view [here](https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html) for the static HTML version.
@@ -56,12 +56,7 @@ To view the source code for each example, please click on the example image.
 <a href="https://github.com/38/plotters#trying-with-jupyter-evcxr-kernel-interactively">
     <img src="https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif" class="galleryItem" width=200px></img>
 </a>
-
-
-<a href="https://github.com/38/plotters/tree/master/examples/piston-demo">
-    <img src="https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif" class="galleryItem" width=200px></img>
-</a>
-
+o
 <a href="https://github.com/38/plotters/blob/master/examples/normal-dist.rs">
     <img src="https://plotters-rs.github.io/plotters-doc-data/normal-dist.png" class="galleryItem" width=200px></img>
 </a>
