@@ -57,11 +57,6 @@ To view the source code for each example, please click on the example image.
     <img src="https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif" class="galleryItem" width=200px></img>
 </a>
 
-
-<a href="https://github.com/38/plotters/tree/master/examples/piston-demo">
-    <img src="https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif" class="galleryItem" width=200px></img>
-</a>
-
 <a href="https://github.com/38/plotters/blob/master/examples/normal-dist.rs">
     <img src="https://plotters-rs.github.io/plotters-doc-data/normal-dist.png" class="galleryItem" width=200px></img>
 </a>
