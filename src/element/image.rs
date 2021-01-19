@@ -1,4 +1,7 @@
-#[cfg(all(not(target_arch = "wasm32"), feature = "image"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "image"
+))]
 use image::{DynamicImage, GenericImageView};
 
 use super::{Drawable, PointCollection};
@@ -6,7 +9,10 @@ use plotters_backend::{BackendCoord, DrawingBackend, DrawingErrorKind};
 
 use plotters_bitmap::bitmap_pixel::{PixelFormat, RGBPixel};
 
-#[cfg(all(not(target_arch = "wasm32"), feature = "image"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "image"
+))]
 use plotters_bitmap::bitmap_pixel::BGRXPixel;
 
 use plotters_bitmap::BitMapBackend;
@@ -164,7 +170,10 @@ impl<'a, Coord, P: PixelFormat> BitMapElement<'a, Coord, P> {
     }
 }
 
-#[cfg(all(not(target_arch = "wasm32"), feature = "image"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "image"
+))]
 impl<'a, Coord> From<(Coord, DynamicImage)> for BitMapElement<'a, Coord, RGBPixel> {
     fn from((pos, image): (Coord, DynamicImage)) -> Self {
         let (w, h) = image.dimensions();
@@ -178,7 +187,10 @@ impl<'a, Coord> From<(Coord, DynamicImage)> for BitMapElement<'a, Coord, RGBPixe
     }
 }
 
-#[cfg(all(not(target_arch = "wasm32"), feature = "image"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "image"
+))]
 impl<'a, Coord> From<(Coord, DynamicImage)> for BitMapElement<'a, Coord, BGRXPixel> {
     fn from((pos, image): (Coord, DynamicImage)) -> Self {
         let (w, h) = image.dimensions();

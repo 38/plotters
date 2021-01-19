@@ -6,19 +6,31 @@
 ///
 /// Thus we need different mechanism for the font implementation
 
-#[cfg(all(not(target_arch = "wasm32"), feature = "ttf"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "ttf"
+))]
 mod ttf;
-#[cfg(all(not(target_arch = "wasm32"), feature = "ttf"))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    feature = "ttf"
+))]
 use ttf::FontDataInternal;
 
-#[cfg(all(not(target_arch = "wasm32"), not(feature = "ttf")))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    not(feature = "ttf")
+))]
 mod naive;
-#[cfg(all(not(target_arch = "wasm32"), not(feature = "ttf")))]
+#[cfg(all(
+    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
+    not(feature = "ttf")
+))]
 use naive::FontDataInternal;
 
-#[cfg(target_arch = "wasm32")]
+#[cfg(all(target_arch = "wasm32", not(target_os = "wasi")))]
 mod web;
-#[cfg(target_arch = "wasm32")]
+#[cfg(all(target_arch = "wasm32", not(target_os = "wasi")))]
 use web::FontDataInternal;
 
 mod font_desc;

@@ -23,22 +23,22 @@ version = "^0.3.*"
 optional = true
 default_features = false
 
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+[target.'cfg(not(all(target_arch = "wasm32", not(target_os = "wasi"))))'.dependencies]
 ttf-parser = { version = "0.8.2", optional = true }
 lazy_static = { version = "1.4.0", optional = true }
 pathfinder_geometry = { version = "0.5.1", optional = true }
 font-kit = { version = "0.7.0", optional = true }
 
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies.image]
+[target.'cfg(not(all(target_arch = "wasm32", not(target_os = "wasi"))))'.dependencies.image]
 version = "0.23.4"
 optional = true
 default-features = false
 features = ["jpeg", "png", "bmp"]
 
-[target.'cfg(target_arch = "wasm32")'.dependencies.wasm-bindgen]
+[target.'cfg(all(target_arch = "wasm32", not(target_os = "wasi")))'.dependencies.wasm-bindgen]
 version = "0.2.62"
 
-[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
+[target.'cfg(all(target_arch = "wasm32", not(target_os = "wasi")))'.dependencies.web-sys]
 version = "0.3.39"
 features = [
          "Document",
@@ -101,7 +101,7 @@ serde_json = "1.0.57"
 serde = "1.0.115"
 serde_derive = "1.0.115"
 
-[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+[target.'cfg(all(target_arch = "wasm32", not(target_os = "wasi")))'.dev-dependencies]
 wasm-bindgen-test = "0.3.12"
 
 [[bench]]
