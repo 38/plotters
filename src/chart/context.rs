@@ -449,7 +449,7 @@ impl<'a, DB: DrawingBackend, X: Ranged, Y: Ranged> ChartContext<'a, DB, Cartesia
                 _ => panic!("Bug: Invalid orientation specification"),
             };
 
-            let actual_style = &actual_style.pos(Pos::new(h_pos, v_pos));
+            let actual_style = actual_style.pos(Pos::new(h_pos, v_pos));
             area.draw_text(&text, &actual_style, (x0 as i32, y0 as i32))?;
         }
 

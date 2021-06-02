@@ -6,7 +6,7 @@ use crate::style::text_anchor::{HPos, Pos, VPos};
 use crate::style::{Color, SizeDesc, TextStyle};
 
 /// The abstraction of a drawing area
-use plotters_backend::{BackendCoord, DrawingBackend, DrawingErrorKind};
+use plotters_backend::{BackendCoord, BackendTextStyle, DrawingBackend, DrawingErrorKind};
 
 use std::borrow::Borrow;
 use std::cell::RefCell;
@@ -508,10 +508,10 @@ impl<DB: DrawingBackend> DrawingArea<DB, Shift> {
     }
 
     /// Draw text on the drawing area
-    pub fn draw_text(
+    pub fn draw_text<TStyle: BackendTextStyle>(
         &self,
         text: &str,
-        style: &TextStyle,
+        style: &TStyle,
         pos: BackendCoord,
     ) -> Result<(), DrawingAreaError<DB>> {
         self.backend_ops(|b| b.draw_text(text, style, (pos.0 + self.rect.x0, pos.1 + self.rect.y0)))
