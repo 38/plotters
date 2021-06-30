@@ -22,12 +22,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     chart
         .draw_series(
-            SurfaceSeries::xoz(
+            SurfaceSeries::new(
                 (-30..30).map(|f| f as f64 / 10.0),
                 (-30..30).map(|f| f as f64 / 10.0),
                 |x, z| (x * x + z * z).cos(),
+                BLUE.mix(0.2).filled()
             )
-            .style(BLUE.mix(0.2).filled()),
         )?
         .label("Surface")
         .legend(|(x, y)| Rectangle::new([(x + 5, y - 5), (x + 15, y + 5)], BLUE.mix(0.5).filled()));
