@@ -13,6 +13,6 @@ about the [coordinate abstraction](../coord/index.html) and [element system](../
 mod area;
 mod backend_impl;
 
-pub use area::{DrawingArea, DrawingAreaErrorKind, IntoDrawingArea, Rect};
+pub use area::{DrawingArea, DrawingAreaErrorKind, IntoDrawingArea, LayoutError, Rect};
 
 pub use backend_impl::*;

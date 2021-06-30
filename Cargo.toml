@@ -25,6 +25,14 @@ version = "^0.3"
 optional = true
 default_features = false
 
+[dependencies.stretch]
+version = "0.3.2"
+optional = true
+
+[dependencies.paste]
+version = "1.0"
+optional = true
+
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 ttf-parser = { version = "0.12.0", optional = true }
 lazy_static = { version = "1.4.0", optional = true }
@@ -61,7 +69,8 @@ default = [
         "ttf",
         "image",
         "deprecated_items",  "all_series", "all_elements",
-        "full_palette"
+        "full_palette",
+        "advanced_layout"
 ]
 all_series = ["area_series", "line_series", "point_series", "surface_series"]
 all_elements = ["errorbar", "candlestick", "boxplot", "histogram"]
@@ -74,6 +83,9 @@ svg_backend = ["plotters-svg"]
 
 # Colors
 full_palette = []
+
+# Advanced Layout
+advanced_layout = ["stretch", "paste"]
 
 # Elements
 errorbar = []

@@ -75,7 +75,7 @@ impl<T: LogScalable> IntoLogRange for Range<T> {
     }
 }
 
-/// The logarithmic coodinate decorator.
+/// The logarithmic coordinate decorator.
 /// This decorator is used to make the axis rendered as logarithmically.
 #[derive(Clone)]
 pub struct LogRangeExt<V: LogScalable> {
@@ -100,7 +100,7 @@ impl<V: LogScalable> LogRangeExt<V> {
         self
     }
 
-    /// Set the base multipler
+    /// Set the base multiplier
     pub fn base(mut self, base: f64) -> Self {
         if self.base > 1.0 {
             self.base = base;
@@ -253,7 +253,7 @@ impl<V: LogScalable> Ranged for LogCoord<V> {
     }
 }
 
-/// The logarithmic coodinate decorator.
+/// The logarithmic coordinate decorator.
 /// This decorator is used to make the axis rendered as logarithmically.
 #[deprecated(note = "LogRange is deprecated, use IntoLogRange trait method instead")]
 #[derive(Clone)]

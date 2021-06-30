@@ -15,6 +15,7 @@ pub struct TextStyle<'a> {
     /// The anchor point position
     pub pos: text_anchor::Pos,
 }
+
 pub trait IntoTextStyle<'a> {
     fn into_text_style<P: HasDimension>(self, parent: &P) -> TextStyle<'a>;
 

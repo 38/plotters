@@ -2,7 +2,7 @@
  The 2-dimensional cartesian coordinate system.
 
  This module provides the 2D cartesian coordinate system, which is composed by two independent
- ranged 1D coordinate sepcification.
+ ranged 1D coordinate specification.
 
  This types of coordinate system is used by the chart constructed with [ChartBuilder::build_cartesian_2d](../../chart/ChartBuilder.html#method.build_cartesian_2d).
 */
@@ -89,7 +89,7 @@ impl<X: Ranged, Y: Ranged> Cartesian2d<X, Y> {
         self.logic_y.range()
     }
 
-    /// Get the horizental backend coordinate range where X axis should be drawn
+    /// Get the horizontal backend coordinate range where X axis should be drawn
     pub fn get_x_axis_pixel_range(&self) -> Range<i32> {
         self.logic_x.axis_pixel_range(self.back_x)
     }

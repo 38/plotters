@@ -115,7 +115,7 @@ impl KeyPointWeight {
 /// The trait for a hint provided to the key point algorithm used by the coordinate specs.
 /// The most important constraint is the `max_num_points` which means the algorithm could emit no more than specific number of key points
 /// `weight` is used to determine if this is used as a bold grid line or light grid line
-/// `bold_points` returns the max number of coresponding bold grid lines
+/// `bold_points` returns the max number of corresponding bold grid lines
 pub trait KeyPointHint {
     /// Returns the max number of key points
     fn max_num_points(&self) -> usize;
@@ -184,12 +184,12 @@ impl KeyPointHint for LightPoints {
 /// Which is used to describe any 1D axis.
 pub trait Ranged {
     /// This marker decides if Plotters default [ValueFormatter](trait.ValueFormatter.html) implementation should be used.
-    /// This assicated type can be one of follow two types:
+    /// This associated type can be one of follow two types:
     /// - [DefaultFormatting](struct.DefaultFormatting.html) will allow Plotters automatically impl
     /// the formatter based on `Debug` trait, if `Debug` trait is not impl for the `Self::Value`,
     /// [ValueFormatter](trait.ValueFormatter.html) will not impl unless you impl it manually.
     ///
-    /// - [NoDefaultFormatting](struct.NoDefaultFormatting.html) Disable the automatical `Debug`
+    /// - [NoDefaultFormatting](struct.NoDefaultFormatting.html) Disable the automatic `Debug`
     /// based value formatting. Thus you have to impl the
     /// [ValueFormatter](trait.ValueFormatter.html) manually.
     ///

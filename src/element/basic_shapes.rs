@@ -222,6 +222,49 @@ fn test_rect_element() {
     }
 }
 
+/// A line element
+pub struct LineSegment<Coord> {
+    points: [Coord; 2],
+    style: ShapeStyle,
+}
+
+impl<Coord> LineSegment<Coord> {
+    /// Create a new path
+    /// - `points`: The left upper and right lower corner of the rectangle
+    /// - `style`: The shape style
+    /// - returns the created element
+    pub fn new(points: [Coord; 2], style: &ShapeStyle) -> Self {
+        Self {
+            points,
+            style: style.clone(),
+        }
+    }
+}
+
+impl<'a, Coord> PointCollection<'a, Coord> for &'a LineSegment<Coord> {
+    type Point = &'a Coord;
+    type IntoIter = &'a [Coord];
+    fn point_iter(self) -> &'a [Coord] {
+        &self.points
+    }
+}
+
+impl<Coord, DB: DrawingBackend> Drawable<DB> for LineSegment<Coord> {
+    fn draw<I: Iterator<Item = BackendCoord>>(
+        &self,
+        mut points: I,
+        backend: &mut DB,
+        _: (u32, u32),
+    ) -> Result<(), DrawingErrorKind<DB::ErrorType>> {
+        match (points.next(), points.next()) {
+            (Some(a), Some(b)) => {
+                backend.draw_line(a, b, &self.style)
+            }
+            _ => Ok(()),
+        }
+    }
+}
+
 /// A circle element
 pub struct Circle<Coord, Size: SizeDesc> {
     center: Coord,

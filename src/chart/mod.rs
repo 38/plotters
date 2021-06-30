@@ -19,8 +19,10 @@ mod dual_coord;
 mod mesh;
 mod series;
 mod state;
+mod layout;
 
 pub use builder::{ChartBuilder, LabelAreaPosition};
+pub use layout::{ChartLayout, Margin};
 pub use context::ChartContext;
 pub use dual_coord::{DualCoordChartContext, DualCoordChartState};
 pub use mesh::{MeshStyle, SecondaryMeshStyle};

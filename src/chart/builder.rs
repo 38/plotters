@@ -311,7 +311,7 @@ impl<'a, 'b, DB: DrawingBackend> ChartBuilder<'a, 'b, DB> {
     /// context, where data series can be rendered on.
     /// - `x_spec`: The specification of X axis
     /// - `y_spec`: The specification of Y axis
-    /// - `z_sepc`: The specification of Z axis
+    /// - `z_spec`: The specification of Z axis
     /// - Returns: A chart context
     #[allow(clippy::type_complexity)]
     pub fn build_cartesian_3d<X: AsRangedCoord, Y: AsRangedCoord, Z: AsRangedCoord>(

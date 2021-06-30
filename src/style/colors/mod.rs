@@ -21,7 +21,6 @@ macro_rules! doc {
     }
 }
 
-#[macro_export]
 macro_rules! define_color {
     ($name:ident, $r:expr, $g:expr, $b:expr, $doc:expr) => {
         doc! {
