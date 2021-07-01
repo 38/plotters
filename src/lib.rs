@@ -815,6 +815,10 @@ pub mod prelude {
 
     #[cfg(feature = "boxplot")]
     pub use crate::element::Boxplot;
+    #[cfg(feature = "boxplot_outliers")]
+    pub use crate::element::BoxplotOutliers;
+    #[cfg(feature = "boxplot_outliers")]
+    pub use crate::element::BoxplotData;
     #[cfg(feature = "candlestick")]
     pub use crate::element::CandleStick;
     #[cfg(feature = "errorbar")]
