@@ -13,6 +13,7 @@ pub struct CandleStick<X, Y: PartialOrd> {
     style: ShapeStyle,
     width: u32,
     points: [(X, Y); 4],
+    fill: bool
 }
 
 impl<X: Clone, Y: PartialOrd> CandleStick<X, Y> {
@@ -32,7 +33,7 @@ impl<X: Clone, Y: PartialOrd> CandleStick<X, Y> {
     /// use chrono::prelude::*;
     /// use plotters::prelude::*;
     ///
-    /// let candlestick = CandleStick::new(Local::now(), 130.0600, 131.3700, 128.8300, 129.1500, &GREEN, &RED, 15);
+    /// let candlestick = CandleStick::new(Local::now(), 130.0600, 131.3700, 128.8300, 129.1500, &GREEN, &RED, 15, false);
     /// ```
     #[allow(clippy::too_many_arguments)]
     pub fn new<GS: Into<ShapeStyle>, LS: Into<ShapeStyle>>(
@@ -44,6 +45,7 @@ impl<X: Clone, Y: PartialOrd> CandleStick<X, Y> {
         gain_style: GS,
         loss_style: LS,
         width: u32,
+        fill: bool
     ) -> Self {
         Self {
             style: match open.partial_cmp(&close) {
@@ -57,6 +59,7 @@ impl<X: Clone, Y: PartialOrd> CandleStick<X, Y> {
                 (x.clone(), low),
                 (x, close),
             ],
+            fill: fill
         }
     }
 }
@@ -78,7 +81,6 @@ impl<X, Y: PartialOrd, DB: DrawingBackend> Drawable<DB> for CandleStick<X, Y> {
     ) -> Result<(), DrawingErrorKind<DB::ErrorType>> {
         let mut points: Vec<_> = points.take(4).collect();
         if points.len() == 4 {
-            let fill = false;
             if points[0].1 > points[3].1 {
                 points.swap(0, 3);
             }
@@ -93,7 +95,7 @@ impl<X, Y: PartialOrd, DB: DrawingBackend> Drawable<DB> for CandleStick<X, Y> {
             points[0].0 -= l;
             points[3].0 += r;
 
-            backend.draw_rect(points[0], points[3], &self.style, fill)?;
+            backend.draw_rect(points[0], points[3], &self.style, self.fill)?;
         }
         Ok(())
     }
