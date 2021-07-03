@@ -173,7 +173,7 @@ where
                 let base = (self.baseline)(&y);
                 let style = (self.style)(&y, &x);
                 let mut rect = Rectangle::new([(x, y), (base, ny)], style);
-                rect.set_margin(0, 0, self.margin, self.margin);
+                rect.set_margin(self.margin, self.margin, 0, 0);
                 return Some(rect);
             }
         }
